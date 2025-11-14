@@ -1,0 +1,315 @@
+/* ─── RESET & BASE ───────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 50%, #1a202c 100%);
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─────────────────────────────────────────── */
+.site-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 50%, #000000 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(255,255,255,0.08);
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+}
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 1;
+}
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+  padding: 8px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.5);
+  margin-right: 25px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: pulse 3s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(255,255,255,0.5); }
+  50% { box-shadow: 0 0 50px rgba(255,255,255,0.8); }
+}
+.logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 50px rgba(255,255,255,0.9);
+}
+.site-title {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+}
+
+/* ─── NAVIGATION ─────────────────────────────────────── */
+.site-nav {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+.site-nav ul {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.site-nav a {
+  display: block;
+  padding: 15px 20px;
+  color: #2a5298;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6b7280, #1a1a1a);
+  transition: width 0.3s ease;
+}
+.site-nav a:hover {
+  color: #1a1a1a;
+  transform: translateY(-3px);
+}
+.site-nav a:hover::after {
+  width: 60%;
+}
+
+/* ─── MAIN CONTENT ──────────────────────────────────── */
+.content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.content section {
+  background: rgba(255,255,255,0.98);
+  margin-bottom: 40px;
+  padding: 35px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.6s ease-out;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.content section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+}
+.content h2 {
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #6b7280, #1a1a1a);
+  border-image-slice: 1;
+  padding-bottom: 10px;
+  font-size: 28px;
+  font-weight: 700;
+}
+.content h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #2d3748;
+  font-size: 22px;
+  font-weight: 600;
+}
+.objectives {
+  margin-left: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+.objectives li {
+  padding: 10px 0 10px 30px;
+  position: relative;
+  line-height: 1.8;
+}
+.objectives li::before {
+  content: '▶';
+  color: #4a5568;
+  position: absolute;
+  left: 0;
+  font-size: 14px;
+}
+
+/* ─── PROFESSORS SECTION ─────────────────────────────── */
+.professors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+.professor-card {
+  background: linear-gradient(135deg, #f7fafc 0%, #cbd5e0 100%);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.professor-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(107, 114, 128, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+.professor-card:hover::before {
+  left: 100%;
+}
+.professor-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+.professor-avatar {
+  font-size: 60px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+.professor-card h3 {
+  margin: 15px 0 10px 0;
+  color: #1a1a1a;
+  font-size: 20px;
+}
+.professor-title {
+  color: #4a5568;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.professor-specialty {
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ─── SBO SECTION ────────────────────────────────────── */
+.sbo-intro {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin: 25px 0 35px 0;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sbo-image-container {
+  text-align: center;
+  margin: 35px 0;
+  position: relative;
+}
+.sbo-group-photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.sbo-group-photo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+.sbo-message {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 35px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.sbo-message h3 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 24px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+.sbo-message p {
+  line-height: 1.9;
+  font-size: 16px;
+  color: rgba(255,255,255,0.95);
+}
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+.site-footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+  color: #e5e7eb;
+  border-top: 3px solid rgba(107, 114, 128, 0.3);
+  font-size: 15px;
+  margin-top: 50px;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .site-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .site-nav a {
+    width: 90%;
+    text-align: center;
+  }
+  .professors-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-title {
+    font-size: 24px;
+  }
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+}
